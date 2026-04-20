@@ -1,0 +1,12 @@
+- this is a CRM built on top of whatsapp
+
+
+You have users (name + phone number)
+It manages private 1-1 communication with them
+It manages a group of members, if they are allowed to be in the group. Who writes the most, when joined and so on.
+
+
+
+https://claude.ai/chat/1dc39691-85b2-4077-941a-6217e5cb9612
+https://www.perplexity.ai/search/research-reddit-and-create-me-uMP.uljCQ6.stYmctufrHw
+https://chatgpt.com/c/69dbb5ea-6ff0-8392-828c-588f0678821a
