@@ -89,6 +89,14 @@ class VTLogger(Logger):
         super(VTLogger, self).info(
             self.remove_curly(json.dumps(log_object)), *args, **passed_kwargs)
 
+    def warning(self, _msg, *args, **kwargs):
+        log_object, passed_kwargs = self.format_msg(_msg, *args, **kwargs)
+        super(VTLogger, self).warning(
+            self.remove_curly(json.dumps(log_object)), *args, **passed_kwargs)
+
+    # alias so warn() also works with kwargs
+    # warn = warning
+
     def error(self, _msg, *args, **kwargs):
         log_object, passed_kwargs = self.format_msg(_msg, *args, **kwargs)
         # if exc in message it automatically gets and sends traceback
