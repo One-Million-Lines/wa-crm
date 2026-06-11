@@ -31,4 +31,6 @@ backend/**/__pycache__/
 
 .env
 .env.*
+backend/.env
+backend/.env.*
 prompt.txt

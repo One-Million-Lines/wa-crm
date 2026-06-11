@@ -14,14 +14,15 @@ import uuid
 
 def seed():
     # ── Admin user ──
-    admin_email = "admin@wacrm.local"
+    admin_email = os.environ.get("SEED_ADMIN_EMAIL", "admin@wacrm.local")
+    admin_password = os.environ.get("SEED_ADMIN_PASSWORD", "change-me-before-use")
     existing = vtstorage.get_one(collection=USERS_COLLECTION, query={"email": admin_email})
     if not existing:
         admin_id = str(uuid.uuid4())
         vtstorage.insert_one(collection=USERS_COLLECTION, set_object={
             "_id": admin_id,
             "email": admin_email,
-            "password": hash_password("change-me-before-use"),
+            "password": hash_password(admin_password),
             "name": "Admin User",
             "role": "admin",
             "createdAt": datetime.now(timezone.utc).isoformat(),
@@ -31,14 +32,15 @@ def seed():
         admin_id = existing["_id"]
 
     # Agent user
-    agent_email = "admin@wacrm.local"
+    agent_email = os.environ.get("SEED_AGENT_EMAIL", "agent@wacrm.local")
+    agent_password = os.environ.get("SEED_AGENT_PASSWORD", "change-agent-password")
     existing_agent = vtstorage.get_one(collection=USERS_COLLECTION, query={"email": agent_email})
     if not existing_agent:
         agent_id = str(uuid.uuid4())
         vtstorage.insert_one(collection=USERS_COLLECTION, set_object={
             "_id": agent_id,
             "email": agent_email,
-            "password": hash_password("change-agent-password"),
+            "password": hash_password(agent_password),
             "name": "Sarah Miller",
             "role": "agent",
             "createdAt": datetime.now(timezone.utc).isoformat(),

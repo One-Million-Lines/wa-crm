@@ -75,7 +75,7 @@ export default function Login() {
                 {loading ? 'Connecting...' : 'Continue'}
               </Button>
               <p className="text-xs text-muted-foreground text-center mt-3">
-                Demo: admin@wacrm.local / change-me-before-use
+                Use the credentials configured by your local seed or auth setup.
               </p>
             </form>
           ) : (
